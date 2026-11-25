@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICT PAN Seva Kendra | NSDL & UTI Authorized Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Poppins', sans-serif; background-color: #f3f6fb; }
+    .tab-active { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+    .glass-card { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(10px); }
+  </style>
+</head>
+<body class="text-slate-800">
+
+  <!-- Top Navbar -->
+  <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-amber-400 text-blue-950 flex items-center justify-center font-bold text-xl shadow">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-bold tracking-wide">ICT PAN SEVA PORTAL</h1>
+          <p class="text-xs text-blue-200">NSDL & UTI Authorized Distributor • Fast e-KYC & e-Sign</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 md:gap-4">
+        <div class="hidden sm:flex items-center gap-2 bg-blue-800/70 px-3 py-1.5 rounded-lg border border-blue-700">
+          <i class="fa-solid fa-wallet text-amber-400"></i>
+          <span class="text-xs text-blue-200">Wallet:</span>
+          <span id="walletBalance" class="font-bold text-sm text-white">₹1,250.00</span>
+          <button onclick="addMoney()" class="ml-1 bg-amber-400 hover:bg-amber-300 text-blue-950 text-xs font-bold px-2 py-0.5 rounded">+ Add</button>
+        </div>
+        <a href="https://wa.me/919696371959?text=Namaste%20Sir,%20mujhe%20PAN%20Card%20ya%20Retailer%20ID%20ke%20baare%20mein%20jaankari%20chahiye." target="_blank"
+           class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs md:text-sm font-semibold px-3.5 py-2 rounded-lg flex items-center gap-2 shadow transition">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>WhatsApp Support</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notice Ticker -->
+  <div class="bg-amber-100 border-b border-amber-300 text-amber-950 text-xs md:text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-hidden">
+      <span class="bg-amber-600 text-white font-bold px-2 py-0.5 rounded text-xs shrink-0">LIVE UPDATE</span>
+      <marquee behavior="scroll" direction="left" class="font-medium">
+        NSDL Biometric & OTP e-KYC se sirf 2 ghante mein naya PAN card banwayein • Khoya hua PAN number Aadhaar se turant nikalein • Retailer ID sirf ₹99 aur Distributor ID ₹499 mein uplabdh!
+      </marquee>
+    </div>
+  </div>
+
+  <!-- Main Dashboard Container -->
+  <main class="max-w-7xl mx-auto px-4 py-6">
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center text-lg"><i class="fa-solid fa-file-circle-plus"></i></div>
+        <div>
+          <p class="text-xs text-slate-500">New PAN Fee</p>
+          <p class="font-bold text-slate-800 text-base">₹107 (e-KYC)</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div>
+          <p class="text-xs text-slate-500">Find Lost PAN</p>
+          <p class="font-bold text-slate-800 text-base">Aadhaar Se Turant</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg"><i class="fa-solid fa-download"></i></div>
+        <div>
+          <p class="text-xs text-slate-500">e-PAN Download</p>
+          <p class="font-bold text-slate-800 text-base">NSDL & UTI PDF</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-lg"><i class="fa-solid fa-users"></i></div>
+        <div>
+          <p class="text-xs text-slate-500">Join As Partner</p>
+          <p class="font-bold text-slate-800 text-base">Retailer / Dist. ID</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="bg-white p-2 rounded-2xl shadow-sm border border-slate-200 mb-6 flex flex-wrap gap-2">
+      <button onclick="switchTab('findPan')" id="btn-findPan" class="tab-btn tab-active flex-1 min-w-[140px] py-2.5 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-magnifying-glass"></i> Find Lost PAN
+      </button>
+      <button onclick="switchTab('downloadPan')" id="btn-downloadPan" class="tab-btn text-slate-600 hover:bg-slate-100 flex-1 min-w-[140px] py-2.5 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-cloud-arrow-down"></i> Download e-PAN
+      </button>
+      <button onclick="switchTab('newPan')" id="btn-newPan" class="tab-btn text-slate-600 hover:bg-slate-100 flex-1 min-w-[140px] py-2.5 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-id-card-clip"></i> New / Correction
+      </button>
+      <button onclick="switchTab('resizeTool')" id="btn-resizeTool" class="tab-btn text-slate-600 hover:bg-slate-100 flex-1 min-w-[140px] py-2.5 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-crop-simple"></i> Photo/Sign Crop
+      </button>
+      <button onclick="switchTab('joinId')" id="btn-joinId" class="tab-btn text-slate-600 hover:bg-slate-100 flex-1 min-w-[140px] py-2.5 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-user-plus"></i> Retailer / Dist. ID
+      </button>
+    </div>
+
+    <!-- TAB 1: FIND LOST PAN -->
+    <section id="tab-findPan" class="tab-content grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-3 mb-4">
+          <h2 class="text-lg font-bold text-blue-950"><i class="fa-solid fa-magnifying-glass text-blue-600 mr-2"></i>Find Lost PAN Number (Aadhaar Se PAN Nikalein)</h2>
+          <span class="text-xs bg-blue-100 text-blue-800 font-semibold px-2.5 py-1 rounded-full">Instant Search</span>
+        </div>
+        <form onsubmit="handleFindPan(event)" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Applicant Full Name (Aadhaar ke anusaar) *</label>
+              <input type="text" id="findName" required placeholder="e.g. RAHUL KUMAR" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-blue-600 uppercase" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">12-Digit Aadhaar Number *</label>
+              <input type="text" id="findAadhaar" maxlength="12" pattern="\d{12}" required placeholder="Enter 12 digit Aadhaar" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-blue-600" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Date of Birth *</label>
+              <input type="date" id="findDob" required class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-blue-600" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Customer Mobile Number *</label>
+              <input type="tel" id="findMobile" maxlength="10" required placeholder="10 digit mobile number" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-blue-600" />
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-2.5 rounded-xl text-sm shadow transition">
+              <i class="fa-solid fa-bolt mr-1"></i> Request / Find PAN Now
+            </button>
+            <button type="button" onclick="sendToWhatsapp('Find Lost PAN Request')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm shadow transition">
+              <i class="fa-brands fa-whatsapp mr-1"></i> Send Direct on WhatsApp
+            </button>
+          </div>
+        </form>
+
+        <!-- Result Box -->
+        <div id="findResultBox" class="hidden mt-5 p-4 rounded-xl bg-emerald-50 border border-emerald-300">
+          <p class="text-xs text-emerald-700 font-semibold">Request Submitted Successfully!</p>
+          <div class="flex flex-wrap items-center justify-between gap-2 mt-2">
+            <div>
+              <p class="text-sm text-slate-700">Reference ID: <strong id="findRefId" class="text-blue-900"></strong></p>
+              <p class="text-xs text-slate-600">Aapki request Distributor Admin ko bhej di gayi hai. Live API judne par PAN turant yahan dikhega.</p>
+            </div>
+            <button onclick="switchTab('downloadPan')" class="bg-blue-900 text-white text-xs font-semibold px-4 py-2 rounded-lg">Go to Download PAN →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Sidebar -->
+      <div class="bg-gradient-to-br from-blue-900 to-indigo-950 text-white p-6 rounded-2xl shadow-sm">
+        <h3 class="font-bold text-base mb-3 text-amber-400"><i class="fa-solid fa-circle-info mr-1"></i> Find PAN Kaise Kaam Karta Hai?</h3>
+        <ul class="space-y-2.5 text-xs text-blue-100 leading-relaxed">
+          <li>• Agar customer ka PAN card kho gaya hai aur number yaad nahi hai, toh sirf <strong>Aadhaar Number aur DOB</strong> se PAN number nikala ja sakta hai.</li>
+          <li>• PAN number milne ke baad aap <strong>Download e-PAN</strong> tab mein jaakar turant PDF download kar sakte hain.</li>
+          <li>• Direct operator help ke liye <strong>Send Direct on WhatsApp</strong> button dabayein.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TAB 2: DOWNLOAD e-PAN -->
+    <section id="tab-downloadPan" class="tab-content hidden grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex items-center justify-between border-b pb-3 mb-4">
+          <h2 class="text-lg font-bold text-blue-950"><i class="fa-solid fa-cloud-arrow-down text-emerald-600 mr-2"></i>Download Official e-PAN Card (NSDL / UTI)</h2>
+          <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">Official Links + Slip</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-5">
+          <a href="https://www.onlineservices.nsdl.com/paam/requestAndDownloadEPAN.html" target="_blank"
+             class="p-4 rounded-xl border-2 border-blue-200 hover:border-blue-600 bg-blue-50/50 transition flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-blue-700 uppercase">Protean (NSDL)</span>
+              <h3 class="font-bold text-slate-900 text-base">Download NSDL e-PAN</h3>
+              <p class="text-xs text-slate-500">Official NSDL Portal par PDF download karein</p>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-blue-700 text-lg"></i>
+          </a>
+
+          <a href="https://www.pan.utiitsl.com/PAN_ONLINE/ePANCard" target="_blank"
+             class="p-4 rounded-xl border-2 border-indigo-200 hover:border-indigo-600 bg-indigo-50/50 transition flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-indigo-700 uppercase">UTIITSL Portal</span>
+              <h3 class="font-bold text-slate-900 text-base">Download UTI e-PAN</h3>
+              <p class="text-xs text-slate-500">Official UTI Portal par PDF download karein</p>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-indigo-700 text-lg"></i>
+          </a>
+        </div>
+
+        <!-- Quick Request Form for Customers without OTP -->
+        <div class="border-t pt-4">
+          <h3 class="text-sm font-bold text-slate-800 mb-3">Aadhaar Mobile Link Nahi Hai? Distributor Se PDF Mangwayein:</h3>
+          <form onsubmit="handleDownloadReq(event)" class="grid sm:grid-cols-3 gap-3">
+            <input type="text" id="dlPanNo" maxlength="10" required placeholder="10-Digit PAN Number" class="border border-slate-300 rounded-xl px-3 py-2 text-sm uppercase" />
+            <input type="text" id="dlAadhaarNo" maxlength="12" required placeholder="12-Digit Aadhaar No." class="border border-slate-300 rounded-xl px-3 py-2 text-sm" />
+            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl px-4 py-2 text-sm transition">
+              <i class="fa-brands fa-whatsapp mr-1"></i> Order e-PAN PDF
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Track Status Box -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+        <h3 class="font-bold text-base text-blue-950 mb-3"><i class="fa-solid fa-truck-fast text-amber-600 mr-1"></i> Track PAN Card Status</h3>
+        <p class="text-xs text-slate-500 mb-4">Apne NSDL ya UTI Acknowledgement / Coupon number se live status check karein:</p>
+        <div class="space-y-3">
+          <a href="https://tin.tin.nsdl.com/pantan/StatusTrack.html" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold py-2.5 rounded-xl transition">
+            Track NSDL PAN Status <i class="fa-solid fa-external-link ml-1"></i>
+          </a>
+          <a href="https://www.trackpan.utiitsl.com/PANONLINE/#forward" target="_blank" class="block w-full text-center bg-blue-700 hover:bg-blue-800 text-white text-xs font-semibold py-2.5 rounded-xl transition">
+            Track UTI PAN Status <i class="fa-solid fa-external-link ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: NEW PAN & CORRECTION -->
+    <section id="tab-newPan" class="tab-content hidden bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+      <div class="flex flex-wrap items-center justify-between border-b pb-3 mb-4 gap-2">
+        <h2 class="text-lg font-bold text-blue-950"><i class="fa-solid fa-id-card-clip text-blue-600 mr-2"></i>Apply New PAN Card / Correction (NSDL & UTI)</h2>
+        <span class="text-xs bg-amber-100 text-amber-900 font-semibold px-3 py-1 rounded-full">e-PAN in 2 Hours • Physical Card in 7-10 Days</span>
+      </div>
+
+      <form onsubmit="handleNewPanSubmit(event)" class="grid md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Service Type *</label>
+          <select id="appType" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm">
+            <option value="New PAN Card (Form 49A)">New PAN Card (Form 49A)</option>
+            <option value="PAN Card Correction / Update">PAN Card Correction / Update</option>
+            <option value="Minor PAN Card (Below 18 Yrs)">Minor PAN Card (Below 18 Yrs)</option>
+            <option value="Lost / Damaged Reprint PAN">Lost / Damaged Reprint PAN</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Preferred Agency *</label>
+          <select id="appAgency" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm">
+            <option value="NSDL e-KYC (Biometric / OTP)">NSDL e-KYC (Biometric / OTP)</option>
+            <option value="UTI PSA (Photo & Sign Upload)">UTI PSA (Photo & Sign Upload)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Applicant Full Name *</label>
+          <input type="text" id="appName" required placeholder="Name as per Aadhaar" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm uppercase" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Father's Name *</label>
+          <input type="text" id="appFather" required placeholder="Father's Full Name" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm uppercase" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Aadhaar Number *</label>
+          <input type="text" id="appAadhaar" maxlength="12" required placeholder="12-Digit Aadhaar" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Mobile Number *</label>
+          <input type="tel" id="appMobile" maxlength="10" required placeholder="10-Digit Mobile" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+
+        <div class="md:col-span-3 pt-2 flex flex-wrap items-center gap-3">
+          <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-2.5 rounded-xl text-sm shadow transition">
+            <i class="fa-solid fa-paper-plane mr-1"></i> Submit Application & Send to Operator
+          </button>
+          <span class="text-xs text-slate-500">Submit karne par details aapke WhatsApp par turant forward ho jayengi.</span>
+        </div>
+      </form>
+    </section>
+
+    <!-- TAB 4: PHOTO & SIGNATURE RESIZE TOOL -->
+    <section id="tab-resizeTool" class="tab-content hidden bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+      <div class="border-b pb-3 mb-4">
+        <h2 class="text-lg font-bold text-blue-950"><i class="fa-solid fa-crop-simple text-purple-600 mr-2"></i>Free NSDL & UTI Photo / Signature Resize Tool</h2>
+        <p class="text-xs text-slate-500">Retailers ke liye free utility: Photo aur Signature ko turant NSDL (213x213 px) ya UTI (300x300 px) size mein convert karein.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">1. Select Preset Size</label>
+            <select id="resizePreset" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-sm">
+              <option value="213x213">NSDL Photo (213 x 213 px)</option>
+              <option value="400x200">NSDL Signature (400 x 200 px)</option>
+              <option value="300x300">UTI Photo (300 x 300 px)</option>
+              <option value="600x300">UTI Signature (600 x 300 px)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">2. Upload Photo or Signature (JPG/PNG)</label>
+            <input type="file" id="imageInput" accept="image/*" onchange="processImage()" class="w-full border border-slate-300 rounded-xl p-2 text-sm" />
+          </div>
+          <button onclick="downloadResized()" id="downloadCropBtn" disabled class="bg-purple-700 disabled:bg-slate-300 hover:bg-purple-800 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition">
+            <i class="fa-solid fa-download mr-1"></i> Download Resized Image (JPG)
+          </button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-6 min-h-[220px]">
+          <canvas id="previewCanvas" class="max-w-full max-h-48 border shadow-sm bg-white hidden"></canvas>
+          <p id="canvasPlaceholder" class="text-xs text-slate-400 text-center">Image upload karne ke baad yahan exact resized preview dikhega</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: RETAILER & DISTRIBUTOR REGISTRATION -->
+    <section id="tab-joinId" class="tab-content hidden space-y-6">
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Retailer Plan -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-blue-200 flex flex-col justify-between">
+          <div>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-3">Retailer ID</h3>
+            <p class="text-3xl font-extrabold text-blue-700 my-2">₹99 <span class="text-xs font-normal text-slate-500">/ Lifetime</span></p>
+            <ul class="text-xs text-slate-600 space-y-2 mt-4">
+              <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> NSDL & UTI Dono Portal Access</li>
+              <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> Mobile App + Web Login</li>
+              <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> Instant Wallet Load via UPI</li>
+              <li><i class="fa-solid fa-check text-emerald-600 mr-1.5"></i> High Commission Per PAN</li>
+            </ul>
+          </div>
+          <button onclick="selectPlan('Retailer ID (₹99)')" class="mt-6 w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2.5 rounded-xl text-sm">Select Retailer Plan</button>
+        </div>
+
+        <!-- Distributor Plan -->
+        <div class="bg-gradient-to-br from-blue-950 to-indigo-900 text-white p-6 rounded-2xl shadow-md border-2 border-amber-400 flex flex-col justify-between">
+          <div>
+            <span class="bg-amber-400 text-blue-950 text-xs font-bold px-3 py-1 rounded-full">BEST EARNING</span>
+            <h3 class="text-xl font-bold mt-3">Distributor ID</h3>
+            <p class="text-3xl font-extrabold text-amber-400 my-2">₹499 <span class="text-xs font-normal text-blue-200">/ Lifetime</span></p>
+            <ul class="text-xs text-blue-100 space-y-2 mt-4">
+              <li><i class="fa-solid fa-check text-amber-400 mr-1.5"></i> Unlimited Free Retailers Banayein</li>
+              <li><i class="fa-solid fa-check text-amber-400 mr-1.5"></i> Har Retailer ke PAN par Commission</li>
+              <li><i class="fa-solid fa-check text-amber-400 mr-1.5"></i> Direct ICT PAN Agency Support</li>
+              <li><i class="fa-solid fa-check text-amber-400 mr-1.5"></i> Khud Bhi PAN Card Bana Sakte Hain</li>
+            </ul>
+          </div>
+          <button onclick="selectPlan('Distributor ID (₹499)')" class="mt-6 w-full bg-amber-400 hover:bg-amber-300 text-blue-950 font-bold py-2.5 rounded-xl text-sm">Select Distributor Plan</button>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+          <h3 class="font-bold text-base text-blue-950 mb-3">Instant ID Registration</h3>
+          <form onsubmit="handleJoinSubmit(event)" class="space-y-3">
+            <input type="text" id="joinPlan" value="Retailer ID (₹99)" readonly class="w-full bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-xs font-bold text-blue-900" />
+            <input type="text" id="joinName" required placeholder="Full Name *" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" />
+            <input type="text" id="joinShop" required placeholder="Shop / CSC Name *" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" />
+            <input type="tel" id="joinMobile" maxlength="10" required placeholder="WhatsApp Mobile Number *" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" />
+            <input type="text" id="joinCity" required placeholder="District & State *" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" />
+            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-xl text-sm shadow">
+              <i class="fa-brands fa-whatsapp mr-1"></i> Register Now on WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 text-xs py-6 px-4 mt-10">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-white text-sm">ICT PAN Seva Kendra — Authorized PAN Distributor</p>
+        <p class="text-slate-400 mt-0.5">Bahadurganj, Mahmoodabad, Sitapur, Uttar Pradesh • Contact: +91 9696371959</p>
+      </div>
+      <div class="text-slate-400">
+        © 2026 All Rights Reserved | NSDL & UTI PAN Services
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const ADMIN_WHATSAPP = "919696371959";
+    let balance = 1250;
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('tab-active');
+        btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+      });
+      document.getElementById('tab-' + tabName).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-' + tabName);
+      activeBtn.classList.add('tab-active');
+      activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+    }
+
+    function addMoney() {
+      const amt = prompt("Wallet mein kitne rupaye add karne hain? (e.g. 500)", "500");
+      if (amt && !isNaN(amt) && Number(amt) > 0) {
+        balance += Number(amt);
+        document.getElementById('walletBalance').innerText = "₹" + balance.toLocaleString('en-IN') + ".00";
+      }
+    }
+
+    function handleFindPan(e) {
+      e.preventDefault();
+      const name = document.getElementById('findName').value.toUpperCase();
+      const aadhaar = document.getElementById('findAadhaar').value;
+      const dob = document.getElementById('findDob').value;
+      const mobile = document.getElementById('findMobile').value;
+      const ref = "FIND" + Math.floor(100000 + Math.random() * 900000);
+
+      document.getElementById('findRefId').innerText = ref;
+      document.getElementById('findResultBox').classList.remove('hidden');
+
+      const msg = `*NEW FIND PAN REQUEST*%0ARef: ${ref}%0AName: ${name}%0AAadhaar: ${aadhaar}%0ADOB: ${dob}%0AMobile: ${mobile}`;
+      window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${msg}`, '_blank');
+    }
+
+    function handleDownloadReq(e) {
+      e.preventDefault();
+      const pan = document.getElementById('dlPanNo').value.toUpperCase();
+      const aadhaar = document.getElementById('dlAadhaarNo').value;
+      const msg = `*DOWNLOAD e-PAN PDF REQUEST*%0APAN No: ${pan}%0AAadhaar No: ${aadhaar}`;
+      window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${msg}`, '_blank');
+    }
+
+    function handleNewPanSubmit(e) {
+      e.preventDefault();
+      const type = document.getElementById('appType').value;
+      const agency = document.getElementById('appAgency').value;
+      const name = document.getElementById('appName').value.toUpperCase();
+      const father = document.getElementById('appFather').value.toUpperCase();
+      const aadhaar = document.getElementById('appAadhaar').value;
+      const mobile = document.getElementById('appMobile').value;
+
+      const msg = `*NEW PAN APPLICATION*%0AService: ${type}%0AAgency: ${agency}%0AName: ${name}%0AFather: ${father}%0AAadhaar: ${aadhaar}%0AMobile: ${mobile}`;
+      window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${msg}`, '_blank');
+    }
+
+    function selectPlan(planName) {
+      document.getElementById('joinPlan').value = planName;
+      document.getElementById('joinName').focus();
+    }
+
+    function handleJoinSubmit(e) {
+      e.preventDefault();
+      const plan = document.getElementById('joinPlan').value;
+      const name = document.getElementById('joinName').value;
+      const shop = document.getElementById('joinShop').value;
+      const mobile = document.getElementById('joinMobile').value;
+      const city = document.getElementById('joinCity').value;
+
+      const msg = `*NEW ID REGISTRATION*%0APlan: ${plan}%0AName: ${name}%0AShop: ${shop}%0AMobile: ${mobile}%0ACity/State: ${city}`;
+      window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${msg}`, '_blank');
+    }
+
+    function sendToWhatsapp(subject) {
+      window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=Hello%20Sir,%20I%20need%20help%20with%20${encodeURIComponent(subject)}`, '_blank');
+    }
+
+    // Image Resizer Logic
+    function processImage() {
+      const fileInput = document.getElementById('imageInput');
+      if (!fileInput.files || !fileInput.files[0]) return;
+      const preset = document.getElementById('resizePreset').value.split('x');
+      const w = parseInt(preset[0]);
+      const h = parseInt(preset[1]);
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.getElementById('previewCanvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          canvas.classList.remove('hidden');
+          document.getElementById('canvasPlaceholder').classList.add('hidden');
+          document.getElementById('downloadCropBtn').disabled = false;
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(fileInput.files[0]);
+    }
+
+    function downloadResized() {
+      const canvas = document.getElementById('previewCanvas');
+      const link = document.createElement('a');
+      link.download = 'pan_resized_image.jpg';
+      link.href = canvas.toDataURL('image/jpeg', 0.92);
+      link.click();
+    }
+  </script>
+</body>
+</html>
